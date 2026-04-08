@@ -13,14 +13,6 @@ public class a {
     int[] score1 = {1, 0, 2};
     System.out.println(sol.chiakeo(score1));
 
-    char[][] grid = {
-            {'1','1','0','0','0'},
-            {'1','1','0','0','0'},
-            {'0','0','1','0','0'},
-            {'0','0','0','1','1'}
-        };
-    System.out.println("Số đảo là: " + sol.numisland(grid)); 
-
 
 }
 }

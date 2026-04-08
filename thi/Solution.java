@@ -1,6 +1,8 @@
 package thi;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
 public class Solution {
     
     public int capsobosung(int[] n, int k) {
@@ -90,5 +92,52 @@ public class Solution {
         }
         
         return (int) total;
+    }
+
+    int[] dx = {-1, 1, 0, 0};
+    int[] dy = {0, 0, -1, 1};
+
+    public int numisland(char[][] grid) {
+        if (grid == null || grid.length == 0 || grid[0].length == 0) {
+            return 0;
+        }
+
+        int n= grid.length;
+        int m= grid[0].length;
+        int count = 0;
+
+        for(int i = 0; i<n; i++){
+            for(int j=0 ; j<m;j++){
+                if(grid[i][j] == '1') {
+                    count++;
+                    bfs(grid, i, j ,n ,m);
+                }
+            }
+
+        }
+        return count;}
+
+    public void bfs(char[][] grid, int x, int y, int n, int m) {
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{x, y});
+        grid[x][y] = '0';
+
+        while (!queue.isEmpty()) {
+            int[] current = queue.poll();
+            int cx = current[0];
+            int cy = current[1];
+
+            for(int i=0 ; i<4;i++){
+                int nx = cx + dx[i];
+                int ny = cy + dy[i];
+                
+                if(nx >= 0 && nx < n && ny >=0 && ny<m && grid[nx][ny] == '1') {
+                
+                    grid[nx][ny] = '0';
+                    queue.offer(new int[]{nx, ny});
+                }
+            }
+            
+        }
     }
 }
