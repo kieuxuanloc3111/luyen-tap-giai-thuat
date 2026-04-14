@@ -39,15 +39,35 @@ public class Solution34 {
             }
             return result;
         }
+    public static int[] getPositiveNumbers(int[] arr){
+        if(arr == null || arr.length ==0) return new int[0];
+        List<Integer> positives = new ArrayList<>();
+        for(int num: arr){
+            if(num > 0) positives.add(num);
+        }
+        int[] result = new int[positives.size()];
+        for(int i=0; i< positives.size();i++){
+            result[i]= positives.get(i);
+        }
+        return result;
+    }
+    public static Map<Character,Integer> countCharacterOccurrences(String str){
+        Map<Character, Integer> charCount = new HashMap<>();
+        for(char c: str.toLowerCase().toCharArray()){
+            charCount.put(c, charCount.getOrDefault(c, 0)+1);
+        }
+        return charCount;
+    }
+    
     public static void main(String[] args) {
         System.out.println(fizzBuzz(5));
         List<Integer> numbers = List.of(-3, -2, -1, 0, 1, 2, 3);
         Map<String, List<Integer>> classified = classifyNumbers(numbers);
         System.out.println(classified);
-String s = "internship";
-System.out.println(s.length());
-System.out.println(s.indexOf("ship"));
-System.out.println(s.toUpperCase().substring(0, 6));
+    String s = "internship";
+    System.out.println(s.length());
+    System.out.println(s.indexOf("ship"));
+    System.out.println(s.toUpperCase().substring(0, 6));
     }   
-    }
+}
 
